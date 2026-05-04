@@ -1,0 +1,34 @@
+# Chronological Memory Palaces (CMP) Configuration
+
+# Data configuration
+data:
+  vocab_size: 100
+  seq_len: 50
+  num_samples: 2000
+
+# Model architecture
+model:
+  embedding_dim: 128
+  hidden_dim: 256
+  memory_size: 32        # 32x32 memory palace grid
+  num_paths: 16          # Number of learned navigation paths
+
+# Training hyperparameters
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  num_epochs: 50
+  seed: 42
+  
+  # Loss weights
+  path_diversity_weight: 0.01   # Encourage using multiple paths
+  memory_reg_weight: 0.001      # Regularize memory magnitudes
+  
+  # Early stopping
+  early_stopping_patience: 10
+
+# Evaluation
+evaluation:
+  sample_frequency: 5     # Generate samples every N epochs
+  visualize_memory: true
